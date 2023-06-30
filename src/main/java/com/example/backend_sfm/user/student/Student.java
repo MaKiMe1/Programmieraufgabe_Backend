@@ -1,16 +1,26 @@
 package com.example.backend_sfm.user.student;
 
-import com.example.backend_sfm.user.User;
+import com.example.backend_sfm.course.Course;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
-public class Student extends User {
+import java.text.DateFormat;
+import java.util.List;
 
+
+public class Student {
+
+    @Id
+    @GeneratedValue
+    protected long id;
+
+    protected String name;
+    protected String surname;
+    protected DateFormat birthDate;
+
+    @ManyToMany
+    protected List<Course> courses;
     private int grade;
 
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
 }

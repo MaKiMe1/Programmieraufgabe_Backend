@@ -1,8 +1,6 @@
 package com.example.backend_sfm.course;
 
-import com.example.backend_sfm.user.User;
-import com.example.backend_sfm.user.student.Student;
-import com.example.backend_sfm.user.teacher.Teacher;
+import com.example.backend_sfm.user.Person;
 import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,17 +33,17 @@ public class CourseRestApi {
     }
 
     @PostMapping("/{courseid}/teacher")
-    public void addTeacher(@PathParam("courseid") long id, @RequestBody Teacher teacher){
+    public void addTeacher(@PathParam("courseid") long id, @RequestBody Person teacher){
 
     }
 
     @PostMapping("/{courseid}/student")
-    public void addStudent(@PathParam("courseid") long id, @RequestBody Student student){
+    public void addStudent(@PathParam("courseid") long id, @RequestBody Person student){
 
     }
 
     @GetMapping("/{courseid}/users")
-    public List<User> getCourseUsers(@PathParam("courseid") long id){
+    public List<Person> getCourseUsers(@PathParam("courseid") long id){
 
         return null;
     }

@@ -1,9 +1,7 @@
 package com.example.backend_sfm.course;
 
-import com.example.backend_sfm.user.User;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.example.backend_sfm.user.Person;
+import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -17,12 +15,15 @@ public class Course {
 
     private String title;
     private String description;
-    private Timestamp starttime;
-    private Timestamp endtime;
+    private Timestamp startTime;
+    private Timestamp endTime;
     private String category;
-    private User teacher;
 
-    private List<User> students;
+    @ManyToOne
+    private Person teacher;
+
+    @ManyToMany
+    private List<Person> students;
 
     public long getId() {
         return id;
@@ -48,20 +49,20 @@ public class Course {
         this.description = description;
     }
 
-    public Timestamp getStarttime() {
-        return starttime;
+    public Timestamp getStartTime() {
+        return startTime;
     }
 
-    public void setStarttime(Timestamp starttime) {
-        this.starttime = starttime;
+    public void setStartTime(Timestamp startTime) {
+        this.startTime = startTime;
     }
 
-    public Timestamp getEndtime() {
-        return endtime;
+    public Timestamp getEndTime() {
+        return endTime;
     }
 
-    public void setEndtime(Timestamp endtime) {
-        this.endtime = endtime;
+    public void setEndTime(Timestamp endTime) {
+        this.endTime = endTime;
     }
 
     public String getCategory() {
@@ -72,19 +73,19 @@ public class Course {
         this.category = category;
     }
 
-    public User getTeacher() {
+    public Person getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(User teacher) {
+    public void setTeacher(Person teacher) {
         this.teacher = teacher;
     }
 
-    public List<User> getStudents() {
+    public List<Person> getStudents() {
         return students;
     }
 
-    public void setStudents(List<User> students) {
+    public void setStudents(List<Person> students) {
         this.students = students;
     }
 }

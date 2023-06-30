@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserRestApi {
 
     @PostMapping("/")
-    public void addUser(@RequestBody User user){
+    public void addUser(@RequestBody Person person){
 
     }
 }
