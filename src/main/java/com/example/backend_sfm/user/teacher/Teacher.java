@@ -19,8 +19,8 @@ public class Teacher  {
     protected String surname;
     protected DateFormat birthDate;
 
-    @ManyToMany
-    protected List<Course> courses;
+//    @ManyToMany
+//    protected List<Course> courses;
     private List<String> subjects;
 
     public long getId() {
@@ -55,13 +55,13 @@ public class Teacher  {
         this.birthDate = birthDate;
     }
 
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
+//    public List<Course> getCourses() {
+//        return courses;
+//    }
+//
+//    public void setCourses(List<Course> courses) {
+//        this.courses = courses;
+//    }
 
     public List<String> getSubjects() {
         return subjects;

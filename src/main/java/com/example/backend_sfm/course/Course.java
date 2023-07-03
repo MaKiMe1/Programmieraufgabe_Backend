@@ -11,6 +11,7 @@ public class Course {
 
     @Id
     @GeneratedValue
+    @Column(name = "course_id")
     private long id;
 
     private String title;
@@ -22,8 +23,13 @@ public class Course {
     @ManyToOne
     private Person teacher;
 
-    @ManyToMany
-    private List<Person> students;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "course_people",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "person_id")
+    )
+    private List<Person> people;
 
     public long getId() {
         return id;
@@ -82,10 +88,10 @@ public class Course {
     }
 
     public List<Person> getStudents() {
-        return students;
+        return people;
     }
 
-    public void setStudents(List<Person> students) {
-        this.students = students;
+    public void setStudents(List<Person> people) {
+        this.people = people;
     }
 }

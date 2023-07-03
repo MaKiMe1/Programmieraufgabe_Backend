@@ -7,42 +7,42 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/course")
+@RequestMapping("/")
 public class CourseRestApi {
 
-    @PostMapping("/")
+    @PostMapping("course")
     public void addCourse(@RequestBody Course course){
 
     }
 
-    @GetMapping("/")
+    @GetMapping("course")
     public List<Course> getCourses(){
 
         return null;
     }
 
-    @GetMapping("/{courseid}")
+    @GetMapping("course/{courseid}")
     public Course getCourse(@PathParam("courseid") long id){
 
         return null;
     }
 
-    @DeleteMapping("/{courseid}")
+    @DeleteMapping("course/{courseid}")
     public void deleteCourse(@PathParam("courseid") long id){
 
     }
 
-    @PostMapping("/{courseid}/teacher")
+    @PostMapping("course/{courseid}/teacher")
     public void addTeacher(@PathParam("courseid") long id, @RequestBody Person teacher){
 
     }
 
-    @PostMapping("/{courseid}/student")
+    @PostMapping("course/{courseid}/student")
     public void addStudent(@PathParam("courseid") long id, @RequestBody Person student){
 
     }
 
-    @GetMapping("/{courseid}/users")
+    @GetMapping("course/{courseid}/users")
     public List<Person> getCourseUsers(@PathParam("courseid") long id){
 
         return null;

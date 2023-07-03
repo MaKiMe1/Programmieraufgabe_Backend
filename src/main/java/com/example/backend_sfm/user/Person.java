@@ -1,10 +1,7 @@
 package com.example.backend_sfm.user;
 
 import com.example.backend_sfm.course.Course;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.text.DateFormat;
 import java.util.List;
@@ -14,13 +11,14 @@ public class Person {
 
     @Id
     @GeneratedValue
+    @Column(name = "people_id")
     private long id;
 
     private String name;
     private String surname;
     private DateFormat birthDate;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "people")
     private List<Course> courses;
 
     private boolean isTeacher;

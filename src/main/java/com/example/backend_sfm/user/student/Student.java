@@ -19,8 +19,8 @@ public class Student {
     protected String surname;
     protected DateFormat birthDate;
 
-    @ManyToMany
-    protected List<Course> courses;
+//    @ManyToMany
+//    protected List<Course> courses;
     private int grade;
 
 }
