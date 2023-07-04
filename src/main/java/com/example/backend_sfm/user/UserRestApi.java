@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserRestApi {
 
     @Autowired
     UserService userService;
 
-    @PostMapping("/")
+    @PostMapping("user")
     public void addUser(@RequestBody Person person){
         userService.addUser(person);
     }

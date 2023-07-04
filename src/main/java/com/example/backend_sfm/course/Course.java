@@ -4,7 +4,7 @@ import com.example.backend_sfm.user.Person;
 import jakarta.persistence.*;
 
 import java.sql.Time;
-import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,7 +30,7 @@ public class Course {
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "person_id")
     )
-    private List<Person> people;
+    private List<Person> people = new ArrayList<Person>();
 
     public long getId() {
         return id;

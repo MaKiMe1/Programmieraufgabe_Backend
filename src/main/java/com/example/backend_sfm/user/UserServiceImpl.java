@@ -12,4 +12,6 @@ public class UserServiceImpl implements UserService{
     public Person addUser(Person person) {
         return userRepo.save(person);
     }
+
+    public Person getUser(long id) { return userRepo.findById(id);}
 }
