@@ -24,7 +24,7 @@ public class Course {
     @ManyToOne
     private Person teacher;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "course_people",
             joinColumns = @JoinColumn(name = "course_id"),
