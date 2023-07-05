@@ -19,6 +19,7 @@ public class CourseServiceImpl implements CourseService{
 
     public void addCourse(Course course) {
         courseRepo.save(course);
+        if (course.getTeacher() == null) { return; }
         userService.getUser(course.getTeacher().getId()).getCourses().add(course);
         for (Person student : course.getStudents()) {
             userService.getUser(student.getId()).getCourses().add(course);
