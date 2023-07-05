@@ -25,27 +25,27 @@ public class CourseRestApi {
     }
 
     @GetMapping("course/{courseid}")
-    public Course getCourse(@PathParam("courseid") long id){
+    public Course getCourse(@PathVariable("courseid") long id){
         return courseService.getCourse(id);
     }
 
     @DeleteMapping("course/{courseid}")
-    public void deleteCourse(@PathParam("courseid") long id){
+    public void deleteCourse(@PathVariable("courseid") long id){
         courseService.deleteCourse(id);
     }
 
     @PostMapping("course/{courseid}/teacher")
-    public void addTeacher(@PathParam("courseid") long id, @RequestBody Person teacher){
+    public void addTeacher(@PathVariable("courseid") long id, @RequestBody Person teacher){
         courseService.getCourse(id).setTeacher(teacher);
     }
 
     @PostMapping("course/{courseid}/student")
-    public void addStudent(@PathParam("courseid") long id, @RequestBody Person student){
+    public void addStudent(@PathVariable("courseid") long id, @RequestBody Person student){
         courseService.addCourseStudent(student, id);
     }
 
     @GetMapping("course/{courseid}/users")
-    public List<Person> getCourseUsers(@PathParam("courseid") long id){
+    public List<Person> getCourseUsers(@PathVariable("courseid") long id){
         return courseService.getUsers(id);
     }
 }

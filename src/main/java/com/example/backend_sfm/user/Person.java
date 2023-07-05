@@ -1,6 +1,7 @@
 package com.example.backend_sfm.user;
 
 import com.example.backend_sfm.course.Course;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class Person {
     private Date birthDate;
 
     @ManyToMany(mappedBy = "people")
+    @JsonIgnore
     private List<Course> courses = new ArrayList<Course>();
 
     private boolean isTeacher;

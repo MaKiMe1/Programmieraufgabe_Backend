@@ -40,11 +40,13 @@ public class CourseServiceImpl implements CourseService{
 
     public void addCourseTeacher(Person teacher, long id) {
         getCourse(id).setTeacher(teacher);
+        courseRepo.save(getCourse(id));
         userService.getUser(teacher.getId()).getCourses().add(getCourse(id));
     }
 
     public void addCourseStudent(Person student, long id) {
         getCourse(id).getStudents().add(student);
+        courseRepo.save(getCourse(id));
         userService.getUser(student.getId()).getCourses().add(getCourse(id));
     }
 
