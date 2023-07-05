@@ -3,7 +3,7 @@ package com.example.backend_sfm.course;
 import com.example.backend_sfm.user.Person;
 import jakarta.persistence.*;
 
-import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +17,8 @@ public class Course {
 
     private String title;
     private String description;
-    private Time startTime;
-    private Time endTime;
+    private Timestamp startTime;
+    private Timestamp endTime;
     private String category;
 
     @ManyToOne
@@ -56,19 +56,19 @@ public class Course {
         this.description = description;
     }
 
-    public Time getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public Timestamp getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
     }
 
