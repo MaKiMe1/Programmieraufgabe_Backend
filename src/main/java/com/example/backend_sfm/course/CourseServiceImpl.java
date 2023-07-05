@@ -1,18 +1,21 @@
 package com.example.backend_sfm.course;
 
 import com.example.backend_sfm.user.Person;
+import com.example.backend_sfm.user.UserRepository;
 import com.example.backend_sfm.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CourseServiceImpl implements CourseService{
 
     @Autowired
     CourseRepository courseRepo;
+
+    @Autowired
+    UserRepository userRepo;
 
     @Autowired
     UserService userService;
@@ -39,15 +42,21 @@ public class CourseServiceImpl implements CourseService{
     }
 
     public void addCourseTeacher(Person teacher, long id) {
-        getCourse(id).setTeacher(teacher);
-        courseRepo.save(getCourse(id));
-        userService.getUser(teacher.getId()).getCourses().add(getCourse(id));
+        Course course = getCourse(id);
+        Person t = userService.getUser(teacher.getId());
+        course.setTeacher(t);
+        courseRepo.save(course);
+        t.getCourses().add(course);
+        userRepo.save(t);
     }
 
     public void addCourseStudent(Person student, long id) {
-        getCourse(id).getStudents().add(student);
-        courseRepo.save(getCourse(id));
-        userService.getUser(student.getId()).getCourses().add(getCourse(id));
+        Course course = getCourse(id);
+        Person s = userService.getUser(student.getId());
+        course.getStudents().add(student);
+        courseRepo.save(course);
+        s.getCourses().add(course);
+        userRepo.save(s);
     }
 
     public List<Person> getUsers(long id) {

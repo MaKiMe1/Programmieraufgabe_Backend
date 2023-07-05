@@ -1,7 +1,6 @@
 package com.example.backend_sfm.course;
 
 import com.example.backend_sfm.user.Person;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +35,7 @@ public class CourseRestApi {
 
     @PostMapping("course/{courseid}/teacher")
     public void addTeacher(@PathVariable("courseid") long id, @RequestBody Person teacher){
-        courseService.getCourse(id).setTeacher(teacher);
+        courseService.addCourseTeacher(teacher, id);
     }
 
     @PostMapping("course/{courseid}/student")
